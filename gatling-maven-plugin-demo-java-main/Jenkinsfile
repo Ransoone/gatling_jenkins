@@ -4,14 +4,14 @@ pipeline {
         stage("Maven build") {
             steps {
             script{
-                sh 'mvn -B clean package'
+                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -B clean package'
                 }
             }
         }
         stage("Gatling run") {
             steps {
             script{
-                sh 'mvn -Dramp_stepOne=$ramp_stepOne -Dramp_stepTwo=$ramp_stepTwo -Dduring_stepOne=$during_stepOne -Dduring_stepTwo=$during_stepTwo -DstepOne=$stepOne -DstepTwo=$stepTwo gatling:test'
+                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -Dramp_stepOne=$ramp_stepOne -Dramp_stepTwo=$ramp_stepTwo -Dduring_stepOne=$during_stepOne -Dduring_stepTwo=$during_stepTwo -DstepOne=$stepOne -DstepTwo=$stepTwo gatling:test'
             }
            }
             post {
