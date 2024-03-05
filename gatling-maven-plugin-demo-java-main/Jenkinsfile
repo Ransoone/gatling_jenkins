@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage("Maven build") {
+            steps {
+            script{
+                sh 'mvn -f ProgectLeroy_gatling-java-maven/pom.xml -B clean package'
+                }
+            }
+        }
+        stage("Gatling run") {
+            steps {
+            script{
+                sh 'mvn -f ProgectLeroy_gatling-java-maven/pom.xml -Dramp_stepOne=$ramp_stepOne -Dramp_stepTwo=$ramp_stepTwo -Dduring_stepOne=$during_stepOne -Dduring_stepTwo=$during_stepTwo -DstepOne=$stepOne -DstepTwo=$stepTwo gatling:test'
+            }
+           }
+            post {
+                always {
+                    gatlingArchive()
+                }
+            }
+        }
+    }
+}
