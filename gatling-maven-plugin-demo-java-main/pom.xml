@@ -89,36 +89,14 @@
         <TEST_TYPE>${TEST_TYPE}</TEST_TYPE>
         <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
         <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
-        <ramp_stepThree>${ramp_stepThree}</ramp_stepThree>
-        <ramp_stepFour>${ramp_stepFour}</ramp_stepFour>
-        <ramp_stepFive>${ramp_stepFive}</ramp_stepFive>
-        <ramp_stepSix>${ramp_stepSix}</ramp_stepSix>
-        <ramp_stepSeven>${ramp_stepSeven}</ramp_stepSeven>
-        <ramp_stepEight>${ramp_stepEight}</ramp_stepEight>
-        <ramp_stepNine>${ramp_stepNine}</ramp_stepNine>
-        <ramp_stepTen>${ramp_stepTen}</ramp_stepTen>
+
 
         <during_stepOne>${during_stepOne}</during_stepOne>
         <during_stepTwo>${during_stepTwo}</during_stepTwo>
-        <during_stepThree>${during_stepThree}</during_stepThree>
-        <during_stepFour>${during_stepFour}</during_stepFour>
-        <during_stepFive>${during_stepFive}</during_stepFive>
-        <during_stepSix>${during_stepSix}</during_stepSix>
-        <during_stepSeven>${during_stepSeven}</during_stepSeven>
-        <during_stepEight>${during_stepEight}</during_stepEight>
-        <during_stepNine>${during_stepNine}</during_stepNine>
-        <during_stepTen>${during_stepTen}</during_stepTen>
+
 
         <stepOne>${stepOne}</stepOne>
         <stepTwo>${stepTwo}</stepTwo>
-        <stepThree>${stepThree}</stepThree>
-        <stepFour>${stepFour}</stepFour>
-        <stepFive>${stepFive}</stepFive>
-        <stepSix>${stepSix}</stepSix>
-        <stepSeven>${stepSeven}</stepSeven>
-        <stepEight>${stepEight}</stepEight>
-        <stepNine>${stepNine}</stepNine>
-        <stepTen>${stepTen}</stepTen>
       </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
