@@ -6,7 +6,7 @@
 
   <groupId>io.gatling.demo</groupId>
   <artifactId>ProgectLeroy_gatling-java-maven</artifactId>
-  <version>3.10.4</version>
+  <version>3.9.5</version>
 
   <properties>
     <!-- use the following if you're compiling with JDK 8-->
@@ -24,18 +24,42 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.44.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>io.gatling.highcharts</groupId>
       <artifactId>gatling-charts-highcharts</artifactId>
       <version>${gatling.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>ru.tinkoff</groupId>
+      <artifactId>gatling-kafka-plugin_2.13</artifactId>
+      <version>0.11.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Add the Jackson Databind dependency -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.0</version>
+    </dependency>
   </dependencies>
+
   <repositories>
     <repository>
       <id>confluent</id>
       <url>https://packages.confluent.io/maven/</url>
     </repository>
   </repositories>
+
   <build>
     <plugins>
       <plugin>
@@ -54,25 +78,9 @@
         <groupId>io.gatling</groupId>
         <artifactId>gatling-maven-plugin</artifactId>
         <version>${gatling-maven-plugin.version}</version>
-        <!--        <configuration>-->
-        <!--        </configuration>-->
+<!--        <configuration>-->
+<!--        </configuration>-->
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>Debug</id>
-      <properties>
-        <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
-        <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
-        <during_stepOne>${during_stepOne}</during_stepOne>
-        <during_stepTwo>${during_stepTwo}</during_stepTwo>
-        <stepOne>${stepOne}</stepOne>
-        <stepTwo>${stepTwo}</stepTwo>
-      </properties>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-    </profile>
-  </profiles>
 </project>
