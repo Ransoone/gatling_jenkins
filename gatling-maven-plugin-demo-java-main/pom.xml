@@ -5,26 +5,59 @@
 
   <groupId>io.gatling.demo</groupId>
   <artifactId>gatling-maven-plugin-demo-java</artifactId>
-  <version>3.10.4</version>
+  <version>3.9.5</version>
 
   <properties>
-    <maven.compiler.release>11</maven.compiler.release>
+    <!-- use the following if you're compiling with JDK 8-->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- comment the 2 lines above and uncomment the line below if you're compiling with JDK 11 or 17 -->
+    <!--    <maven.compiler.release>11</maven.compiler.release>-->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <gatling.version>${project.version}</gatling.version>
-    <gatling-maven-plugin.version>4.8.2</gatling-maven-plugin.version>
-    <maven-compiler-plugin.version>3.12.1</maven-compiler-plugin.version>
+    <gatling-maven-plugin.version>4.6.0</gatling-maven-plugin.version>
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
     <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
     <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
   </properties>
 
   <dependencies>
     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.44.1.0</version>
+    </dependency>
+    <dependency>
       <groupId>io.gatling.highcharts</groupId>
       <artifactId>gatling-charts-highcharts</artifactId>
       <version>${gatling.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>ru.tinkoff</groupId>
+      <artifactId>gatling-kafka-plugin_2.13</artifactId>
+      <version>0.11.0</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Add the Jackson Databind dependency -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.13.0</version>
+    </dependency>
   </dependencies>
+
+  <repositories>
+    <repository>
+      <id>confluent</id>
+      <url>https://packages.confluent.io/maven/</url>
+    </repository>
+  </repositories>
 
   <build>
     <plugins>
@@ -44,11 +77,52 @@
         <groupId>io.gatling</groupId>
         <artifactId>gatling-maven-plugin</artifactId>
         <version>${gatling-maven-plugin.version}</version>
-        <configuration>
-          <!-- Enterprise Cloud (https://cloud.gatling.io/) configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-cloud -->
-          <!-- Enterprise Self-Hosted configuration reference: https://gatling.io/docs/gatling/reference/current/extensions/maven_plugin/#working-with-gatling-enterprise-self-hosted -->
-        </configuration>
+        <!--        <configuration>-->
+        <!--        </configuration>-->
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>Debug</id>
+      <properties>
+        <TEST_TYPE>${TEST_TYPE}</TEST_TYPE>
+        <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
+        <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
+        <ramp_stepThree>${ramp_stepThree}</ramp_stepThree>
+        <ramp_stepFour>${ramp_stepFour}</ramp_stepFour>
+        <ramp_stepFive>${ramp_stepFive}</ramp_stepFive>
+        <ramp_stepSix>${ramp_stepSix}</ramp_stepSix>
+        <ramp_stepSeven>${ramp_stepSeven}</ramp_stepSeven>
+        <ramp_stepEight>${ramp_stepEight}</ramp_stepEight>
+        <ramp_stepNine>${ramp_stepNine}</ramp_stepNine>
+        <ramp_stepTen>${ramp_stepTen}</ramp_stepTen>
+
+        <during_stepOne>${during_stepOne}</during_stepOne>
+        <during_stepTwo>${during_stepTwo}</during_stepTwo>
+        <during_stepThree>${during_stepThree}</during_stepThree>
+        <during_stepFour>${during_stepFour}</during_stepFour>
+        <during_stepFive>${during_stepFive}</during_stepFive>
+        <during_stepSix>${during_stepSix}</during_stepSix>
+        <during_stepSeven>${during_stepSeven}</during_stepSeven>
+        <during_stepEight>${during_stepEight}</during_stepEight>
+        <during_stepNine>${during_stepNine}</during_stepNine>
+        <during_stepTen>${during_stepTen}</during_stepTen>
+
+        <stepOne>${stepOne}</stepOne>
+        <stepTwo>${stepTwo}</stepTwo>
+        <stepThree>${stepThree}</stepThree>
+        <stepFour>${stepFour}</stepFour>
+        <stepFive>${stepFive}</stepFive>
+        <stepSix>${stepSix}</stepSix>
+        <stepSeven>${stepSeven}</stepSeven>
+        <stepEight>${stepEight}</stepEight>
+        <stepNine>${stepNine}</stepNine>
+        <stepTen>${stepTen}</stepTen>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 </project>
