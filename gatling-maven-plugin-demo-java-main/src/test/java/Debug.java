@@ -29,7 +29,7 @@ public class Debug extends Simulation {
                                 .eachLevelLasting(10)
                                 .separatedByRampsLasting(10)
                                 .startingFrom(0) // Double
-                )
+                ).protocols(Protocols.google)
         );
 
     }
