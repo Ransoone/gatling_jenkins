@@ -4,7 +4,7 @@ pipeline {
         stage("Maven build") {
             steps {
             script{
-                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -B clean package'
+                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -B clean package -X > debug.log'
                 }
             }
         }
