@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("Maven build") {
-            steps {
-            script{
-                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -B clean package -X > debug.log'
-                }
-            }
-        }
         stage("Gatling run") {
             steps {
             script{
