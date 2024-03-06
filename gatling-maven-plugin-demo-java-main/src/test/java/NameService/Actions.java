@@ -10,5 +10,7 @@ public class Actions {
             exec(http("name")
                     .get("/weather-moscow-4368/#{when}/ ")
                     .header("content-type", "application/json; charset = utf-8")
-                    .check(status().is(200)));
+                    .check(status().is(200),
+                        jsonPath("$..id").findAll().optional().saveAs("id"))
+            );
 }
