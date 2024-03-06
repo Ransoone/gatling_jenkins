@@ -86,7 +86,6 @@
     <profile>
       <id>Debug</id>
       <properties>
-        <TEST_TYPE>${TEST_TYPE}</TEST_TYPE>
         <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
         <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
         <during_stepOne>${during_stepOne}</during_stepOne>

@@ -15,7 +15,8 @@ public class Debug extends Simulation {
                         CoreDsl.constantUsersPerSec(TpsScn.PROFIL_scn * Sets.stepOne).during(Sets.during_stepOne),
                         CoreDsl.rampUsersPerSec(0.1).to(TpsScn.PROFIL_scn * Sets.stepOne).during(Sets.ramp_stepTwo),
                         CoreDsl.constantUsersPerSec(TpsScn.PROFIL_scn * Sets.stepTwo).during(Sets.during_stepTwo)
-                ).protocols(Protocols.google.proxy(Proxy(Sets.host, Sets.port)))
+                ).protocols(Protocols.google)
+                        //.proxy(Proxy(Sets.host, Sets.port)))
         );
 
     }
