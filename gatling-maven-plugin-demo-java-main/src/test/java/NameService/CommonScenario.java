@@ -1,11 +1,11 @@
-package TestService;
+package NameService;
 import io.gatling.javaapi.core.ScenarioBuilder;
 
 
 import static io.gatling.javaapi.core.CoreDsl.scenario;
 
-public class TestServiceCommonScenario {
+public class CommonScenario {
     public static ScenarioBuilder test_scn = scenario("testResponse")
-            .feed(TestServiceFeeders.dpr)
-            .exec(TestServiceActions.testResponse);
+            .feed(Feeders.dpr)
+            .exec(Actions.testResponse);
 }
