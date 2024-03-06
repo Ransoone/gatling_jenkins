@@ -82,4 +82,21 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>Debug</id>
+      <properties>
+        <TEST_TYPE>${TEST_TYPE}</TEST_TYPE>
+        <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
+        <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
+        <during_stepOne>${during_stepOne}</during_stepOne>
+        <during_stepTwo>${during_stepTwo}</during_stepTwo>
+        <stepOne>${stepOne}</stepOne>
+        <stepTwo>${stepTwo}</stepTwo>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 </project>
