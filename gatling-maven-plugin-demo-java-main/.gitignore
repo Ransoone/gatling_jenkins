@@ -1,2 +1,9 @@
 /target
 /.mvn/wrapper/*.jar
+target
+.idea
+.bsp/sbt.json
+.settings
+.classpath
+.project
+*.log
