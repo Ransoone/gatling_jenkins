@@ -5,7 +5,7 @@ pipeline {
             steps {
             script{
                 sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml' +
-                    '-B clean package'
+                    ' -B clean package'
                 }
             }
         }
