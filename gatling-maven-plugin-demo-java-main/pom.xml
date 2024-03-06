@@ -3,8 +3,8 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.gatling.demo</groupId>
-  <artifactId>gatling-maven-plugin-demo-java</artifactId>
-  <version>3.9.5</version>
+  <artifactId>gatling-maven-plugin-demo-java-main</artifactId>
+  <version>3.10.4</version>
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -47,4 +47,20 @@
       </plugin>
     </plugins>
   </build>
+  <profiles>
+    <profile>
+      <id>Debug</id>
+      <properties>
+        <ramp_stepOne>${ramp_stepOne}</ramp_stepOne>
+        <ramp_stepTwo>${ramp_stepTwo}</ramp_stepTwo>
+        <during_stepOne>${during_stepOne}</during_stepOne>
+        <during_stepTwo>${during_stepTwo}</during_stepTwo>
+        <stepOne>${stepOne}</stepOne>
+        <stepTwo>${stepTwo}</stepTwo>
+      </properties>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+    </profile>
+  </profiles>
 </project>
