@@ -4,15 +4,29 @@ pipeline {
         stage("Maven build") {
             steps {
             script{
-                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -B clean package'
+                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml' +
+                    '-B clean package'
                 }
             }
         }
         stage("Gatling run") {
             steps {
             script{
-                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml -Dramp_stepOne=$ramp_stepOne -Dramp_stepTwo=$ramp_stepTwo -Dduring_stepOne=$during_stepOne -Dduring_stepTwo=$during_stepTwo -DstepOne=$stepOne -DstepTwo=$stepTwo -DincrementUsersPerSec=$incrementUsersPerSec -Dtimes=$times -DeachLevelLasting=$eachLevelLasting -DseparatedByRampsLasting=$separatedByRampsLasting -DstartingFrom=$startingFrom -Dgatling.simulationClass=$TEST_TYPE gatling:test'
-            }
+                sh 'mvn -f gatling-maven-plugin-demo-java-main/pom.xml' +
+                   ' -Dramp_stepOne=$ramp_stepOne' +
+                   ' -Dramp_stepTwo=$ramp_stepTwo' +
+                   ' -Dduring_stepOne=$during_stepOne' +
+                   ' -Dduring_stepTwo=$during_stepTwo' +
+                   ' -DstepOne=$stepOne' +
+                   ' -DstepTwo=$stepTwo' +
+                   ' -DincrementUsersPerSec=$incrementUsersPerSec' +
+                   ' -Dtimes=$times' +
+                   ' -DeachLevelLasting=$eachLevelLasting' +
+                   ' -DseparatedByRampsLasting=$separatedByRampsLasting' +
+                   ' -DstartingFrom=$startingFrom' +
+                   ' -Dgatling.simulationClass=$TEST_TYPE' +
+                   ' gatling:test'
+               }
            }
             post {
                 always {
